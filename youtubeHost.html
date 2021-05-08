@@ -63,37 +63,16 @@
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
   var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player("player", {
-      width: "1000",
-      height: "1000",
-      videoId: videoId_s,
-      playerVars: {
-        end: end,
-        rel: rel_s,
-        playsinline: 1,
-        loop: loop_s,
-        color: color,
-        start: start,
-        list: list,
-        hl: playerLang,
-        listType: listType,
-        controls: controls_s,
-        fs: preventFullScreen_s,
-        cc_lang_pref: cc_lang_pref_s,
-        iv_load_policy: iv_load_policy,
-        modestbranding: modestbranding_s,
-        cc_load_policy: showClosedCaptions_s,
-      },
-      events: {
-        onReady: onPlayerReady,
-        onStateChange: onPlayerStateChange,
-        onError: onPlayerError,
-        onPlaybackQualityChange: onPlaybackQualityChange,
-        onPlaybackRateChange: onPlaybackRateChange,
-      },
-    });
-  }
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'M7lc1UVf-VE',
+          playerVars: {
+            'playsinline': 1
+          }
+        });
+      }
 
   function onPlayerError(event) {
     window.ReactNativeWebView.postMessage(
