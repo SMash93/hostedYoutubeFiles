@@ -62,17 +62,22 @@
   var firstScriptTag = document.getElementsByTagName("script")[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  var player;
+ var player;
       function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: '6JQm5aSjX6g',
-          playerVars: {
-            'playsinline': 1
-          }
+        player = new YT.Player("player", {
+          width: "1000",
+          height: "1000",
+          videoId: videoId_s,
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+            onError: onPlayerError,
+            onPlaybackQualityChange: onPlaybackQualityChange,
+            onPlaybackRateChange: onPlaybackRateChange,
+          },
         });
       }
+
 
   function onPlayerError(event) {
     window.ReactNativeWebView.postMessage(
