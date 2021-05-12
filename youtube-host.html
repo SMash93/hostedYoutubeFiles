@@ -122,6 +122,7 @@
       }
 
       function onPlayerReady(event) {
+         event.target.playVideo();
         sendMessageToRN({eventType: 'playerReady'});
       }
 
